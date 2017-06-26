@@ -9,68 +9,26 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import * 
 
-class PropertyOfChemical(QWidget):
+class InputParameters(QWidget):
     def __init__(self,parent=None):
-        super(PropertyOfChemical,self).__init__(parent)
+        super(InputParameters,self).__init__(parent)
+        self.a1=self.PropertyOfChemical()
+        self.mainlayout=QVBoxLayout()
+        self.mainlayout.addWidget(self.groupbox1)
+        self.setLayout(self.mainlayout)
         
-        self.a1=QLabel('CHEM_NO')
-        self.a2=QLineEdit()
-        self.a1.setBuddy(self.a2)
-        self.a3=QHBoxLayout()
-        self.a3.addWidget(self.a1)
-        self.a3.addWidget(self.a2)
         
-        self.b1=QLabel('CHEM_MW')
-        self.b2=QLineEdit()
-        self.b1.setBuddy(self.b2)
-        self.b3=QHBoxLayout()
-        self.b3.addWidget(self.b1)
-        self.b3.addWidget(self.b2)
-        
-        self.c1=QLabel('CHEM_KOW')
-        self.c2=QLineEdit()
-        self.c1.setBuddy(self.c2)
-        self.c3=QHBoxLayout()
-        self.c3.addWidget(self.c1)
-        self.c3.addWidget(self.c2)
-        
-        self.d1=QLabel('CHEM_PKA')
-        self.d2=QLineEdit()
-        self.d1.setBuddy(self.d2)
-        self.d3=QHBoxLayout()
-        self.d3.addWidget(self.d1)
-        self.d3.addWidget(self.d2)
-       
-        self.e1=QLabel('CHEM_NONION')
-        self.e2=QLineEdit()
-        self.e1.setBuddy(self.e2)
-        self.e3=QHBoxLayout()
-        self.e3.addWidget(self.e1)
-        self.e3.addWidget(self.e2)
-        
-        self.f1=QLabel('CHEM_UNBND')
-        self.f2=QLineEdit()
-        self.f1.setBuddy(self.f2)
-        self.f3=QHBoxLayout()
-        self.f3.addWidget(self.f1)
-        self.f3.addWidget(self.f2)
-        
-        self.g1=QLabel('CHEM_ACIDBASE')
-        self.g2=QLineEdit()
-        self.g1.setBuddy(self.g2)
-        self.g3=QHBoxLayout()
-        self.g3.addWidget(self.g1)
-        self.g3.addWidget(self.g2)
-        
-        self.z=QVBoxLayout()
-        self.z.addLayout(self.a3)
-        self.z.addLayout(self.b3)
-        self.z.addLayout(self.c3)
-        self.z.addLayout(self.d3)
-        self.z.addLayout(self.e3)
-        self.z.addLayout(self.f3)
-        self.z.addLayout(self.g3)
-        self.setLayout(self.z)
+    def PropertyOfChemical(self):
+        self.groupbox1=QGroupBox('Property of Chemical')
+        self.layout1=QFormLayout()
+        self.layout1.addRow(QLabel('CHEM_NO'),QLineEdit())
+        self.layout1.addRow(QLabel('CHEM_MW'),QLineEdit())
+        self.layout1.addRow(QLabel('CHEM_KOW'),QLineEdit())
+        self.layout1.addRow(QLabel('CHEM_PKA'),QLineEdit())
+        self.layout1.addRow(QLabel('CHEM_NONION'),QLineEdit())
+        self.layout1.addRow(QLabel('CHEM__UNBND'),QLineEdit())
+        self.layout1.addRow(QLabel('CHEM_ACIDBASE'),QLineEdit())
+        self.groupbox1.setLayout(self.layout1)
         
 class SurreyWindow(QMainWindow):
     #主窗口的初始化
@@ -79,10 +37,10 @@ class SurreyWindow(QMainWindow):
         #调试
         
         
-        #停靠窗口
-        self.dockwindow1=QDockWidget('Parameters',self)
+        #右停靠窗口
+        self.dockwindow1=QDockWidget('Input Parameters',self)
         self.dockwindow1.setAllowedAreas(Qt.RightDockWidgetArea)
-        self.dockwindow1.mainlayout=PropertyOfChemical() #自定义的类
+        self.dockwindow1.mainlayout=InputParameters() #自定义的类
         self.dockwindow1.setWidget(self.dockwindow1.mainlayout)
         self.addDockWidget(Qt.RightDockWidgetArea, self.dockwindow1)
         
@@ -91,10 +49,8 @@ class SurreyWindow(QMainWindow):
         self.setCentralWidget(self.mainwindow1)
         
         #主菜单
-        menu_file=self.menuBar().addMenu('File')
-        menu_run=self.menuBar().addMenu('Run')
-        menu_tools=self.menuBar().addMenu('Tools')
-        menu_help=self.menuBar().addMenu('Help')
+        menu_view=self.menuBar().addMenu('View')
+
         
         #信号连接
         
