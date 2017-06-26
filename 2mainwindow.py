@@ -357,8 +357,8 @@ class SurreyWindow(QMainWindow):
         #停靠窗口2
         self.dockwindow2=QDockWidget('Parameters',self)
         self.dockwindow2.setAllowedAreas(Qt.LeftDockWidgetArea) #此句会限定摆放区域
-        self.dockwindow2.a5=CompartmentSetup() #5个自定义的类
-        self.dockwindow2.a4=Partition_Diffusion_Coefficient()
+        self.dockwindow2.a4=CompartmentSetup() #5个自定义的类
+        self.dockwindow2.a5=Partition_Diffusion_Coefficient()
         
         self.dockwindow2.z1=QVBoxLayout()
         self.dockwindow2.z1.addWidget(self.dockwindow2.a4)
@@ -398,6 +398,8 @@ class SurreyWindow(QMainWindow):
          QMessageBox.Yes,
          QMessageBox.No)
         if reply==QMessageBox.Yes:
+            self.dockwindow1.close() #如果dock窗口被拖拽出外面且直接关闭主窗口，这个dock还会存在的
+            self.dockwindow2.close()
             event.accept()
         else:
             event.ignore()
