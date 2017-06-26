@@ -7,19 +7,28 @@ Created on Sun Jun 25 21:53:34 2017
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-#from PyQt5.QtCore import *
+from PyQt5.QtCore import * 
+
 
 class SurreyWindow(QMainWindow):
     #主窗口的初始化
     def __init__(self):
         super().__init__()
-        #组件声明
-        
-        #布局管理
+        #调试
         
         
+        #停靠窗口
+        self.dockwindow1=QDockWidget('Parameters',self)
+        self.dockwindow1.setAllowedAreas(Qt.LeftDockWidgetArea)
+        self.dockwindow1.mainlayout= #自定义的类
+        self.dockwindow1.setWidget(self.dockwindow1.mainlayout)
+        self.addDockWidget(Qt.LeftDockWidgetArea, self.dockwindow1)
         
-        #主菜单设置
+        #主窗口
+        self.mainwindow1=QWidget()
+        self.setCentralWidget(self.mainwindow1)
+        
+        #主菜单
         menu_file=self.menuBar().addMenu('File')
         menu_run=self.menuBar().addMenu('Run')
         menu_tools=self.menuBar().addMenu('Tools')
@@ -27,7 +36,7 @@ class SurreyWindow(QMainWindow):
         
         #信号连接
         
-        #主窗口设置
+        #应用程序窗口
         self.resize(640,480)
         self.center #自定义函数
         self.setWindowTitle('Transdermal Permeation Model')
@@ -53,6 +62,7 @@ class SurreyWindow(QMainWindow):
         size=self.geometry()
         self.move( (screen.width()-size.width())/2,\
                   (screen,height()-size.height())/2)
+
 #测试代码
 if __name__=='__main__':
     import sys
