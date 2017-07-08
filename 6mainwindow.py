@@ -335,11 +335,11 @@ class SurreyWindow(QMainWindow):
         #停靠窗口
         self.dockwindow = QDockWidget('Vehicle Setting')
         self.dockwindow.setAllowedAreas(Qt.RightDockWidgetArea)
-        self.aa1 = PropertyOfChemical()
-        self.aa2=CompartmentSetup()
-        self.aa3=VehicleSetting()
-        self.aa4=InitialConcentration()
-        self.aa5=Partition_Diffusion_Coefficient()
+        self.input1 = PropertyOfChemical()
+        self.input2=CompartmentSetup()
+        self.input3=VehicleSetting()
+        self.input4=InitialConcentration()
+        self.input5=Partition_Diffusion_Coefficient()
 
         self.dockwindow.hide()
         self.addDockWidget(Qt.RightDockWidgetArea,self.dockwindow)
@@ -368,9 +368,6 @@ class SurreyWindow(QMainWindow):
         self.result0=QTreeWidgetItem(self.project0)
         self.result0.setText(0,'Results')
 
-        #self.projectview.itemSelectionChanged.connect(self.Viewer)#触发函数
-        #self.projectview.itemDoubleClicked.connect(self.Viewer)  # 触发函数
-        self.projectview.itemClicked.connect(self.Viewer)  # 触发函数
         self.projectview.insertTopLevelItem(0,self.project0)#工程浏览窗口的显示
 
 
@@ -385,6 +382,9 @@ class SurreyWindow(QMainWindow):
         self.setCentralWidget(self.mainwindow) #应用程序主窗口的显示
 
         #信号连接汇总
+        # self.projectview.itemSelectionChanged.connect(self.Viewer)#触发函数
+        # self.projectview.itemDoubleClicked.connect(self.Viewer)  # 触发函数
+        self.projectview.itemClicked.connect(self.Viewer)  # 触发函数
 
         #主菜单
         self.menu1=self.menuBar().addMenu('&File') #主菜单显示
@@ -408,11 +408,11 @@ class SurreyWindow(QMainWindow):
     def Viewer(self):
 
         if self.VH_setting0.isSelected()==True:
-            self.dockwindow.setWidget(self.aa1)
+            self.dockwindow.setWidget(self.input1)
             self.dockwindow.show()
             print(1)
         elif self.SC_setting0.isSelected() == True:
-            self.dockwindow.setWidget(self.aa2)
+            self.dockwindow.setWidget(self.input2)
             self.dockwindow.show()
             print(2)
         elif self.VE_setting0.isSelected() == True:
