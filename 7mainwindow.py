@@ -387,7 +387,7 @@ class SurreyWindow(QMainWindow):
         if not os.path.exists('.\\config'):
             os.mkdir('.\\config')
         with open('.\\config\\Caffeine.txt','w') as self.newproject._file:
-            text=np.array([['COMPARTMENT   ','V,S','\n'],
+            text=np.array([['COMPARTMENT_SETUP   ','V,S','\n'],
                            ['COMP   ','0 ','20e-6 ','-1 ','1 ','1','\n'],
                            ['COMP   ', '1 ', '16 ', '1 ', '2 ', '1', '\n'],
                            ['CHEM_NO   ', '1','\n'],
