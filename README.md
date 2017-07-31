@@ -1,1 +1,3 @@
 # MasterProject
+相比cheshi_v1：cheshi_v2多了QFileDialog的设置；
+相比run_v1:run_v2需要传递一个cfg文件的路径，还需要一个结果保存的路径
