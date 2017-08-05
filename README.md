@@ -4,4 +4,4 @@
 cheshi_v3相比cheshi_v2少了选择结果保存路径一步
 cheshi_v4相比cheshi_v3完善了Compartment Setup功能，并且删除了“用DockWidget显示”的五组参数
 cheshi_v5重要更改：新建工程不需要选择文件夹！而是建立一个QTreeWidgetItem的显示而已，数据的保存放在ProjectItem类的saveProject方法中。
-
+8mainwindow总结：比cheshi_v5完善了“数据结构的选择”和“读取数据后显示”
