@@ -5,3 +5,4 @@
 #11mainwinodw:增加了VE,DE,HF,BD的显示。
 #12mainwindow：增加了matplotlib的画布和工具栏
 #13mainwindow:将closeProject函数从SurreyWindow处移动到ProjectViwer处
+#14mainwindow:相比13mainwindow，修改中文注释为英文
