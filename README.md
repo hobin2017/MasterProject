@@ -1,5 +1,8 @@
 # MasterProject
-User Instructions:
-1, Placing the 'compDPK_hobin' and 'saveMass_hobin' files in the 'core' file.
-2, Placing the '16mainwindow' in the 'example' file.
-3, Running the '16mainwindow' file.
+For users:
+Just Download these two folder 'core' and 'example'. And then running the '16mainwindow' file of the 'example' folder.
+
+For developers:
+Firstly, just Download '16mainwindow', 'saveMass_hobin' and 'compDPK_hobin' files;
+Secondly, placing the 'saveMass_hobin' and 'compDPK_hobin' files in your 'core' folder;
+Thirdly, plcaing the '16mainwindow' file in you 'example' folder;
