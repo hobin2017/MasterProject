@@ -1,6 +1,6 @@
 # MasterProject
 For users:
-Just Download these two folder 'core' and 'example'. And then running the '16mainwindow' file of the 'example' folder.
+Just download these two folder 'core' and 'example'. And then running the '16mainwindow' file of the 'example' folder.
 
 For developers:
 Firstly, just Download '16mainwindow', 'saveMass_hobin' and 'compDPK_hobin' files;
